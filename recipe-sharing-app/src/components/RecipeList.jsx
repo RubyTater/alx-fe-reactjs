@@ -5,6 +5,7 @@ import { useRecipeStore } from './recipeStore';
 
     return (
       <div>
+        <h2>Ruby's Recipe</h2>
         {recipes.map(recipe => (
           <div key={recipe.id}>
             <h3>{recipe.title}</h3>
