@@ -1,4 +1,4 @@
-import { useRecipeStore } from './components/recipeStore';
+import { useRecipeStore } from './recipeStore';
 
   const RecipeList = () => {
     const recipes = useRecipeStore(state => state.recipes);
@@ -14,3 +14,5 @@ import { useRecipeStore } from './components/recipeStore';
       </div>
     );
   };
+
+  export default RecipeList;
