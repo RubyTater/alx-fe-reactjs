@@ -14,8 +14,8 @@ const EditRecipeForm = () => {
     else navigate('/');
   }, [id, recipes, navigate]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault(); 
     updateRecipe(id, formData);
     navigate(`/recipe/${id}`);
   };
