@@ -6,16 +6,26 @@ const AddRecipeForm = () => {
   const [steps, setSteps] = useState("");
   const [errors, setErrors] = useState("");
 
+  // ✅ Validation helper
+  const validate = () => {
+    if (!title || !ingredients || !steps) {
+      return "⚠️ Please fill out all fields before submitting.";
+    }
+    if (ingredients.split(",").length < 2) {
+      return "⚠️ Please add at least two ingredients (separate with commas).";
+    }
+    return "";
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic validation
-    if (!title || !ingredients || !steps) {
-      setErrors("⚠️ Please fill out all fields before submitting.");
+    const validationError = validate();
+    if (validationError) {
+      setErrors(validationError);
       return;
     }
 
-    // Clear errors
     setErrors("");
 
     // Just alert the data for now
@@ -52,7 +62,7 @@ const AddRecipeForm = () => {
 
         {/* Ingredients */}
         <div>
-          <label className="block font-medium mb-1">Ingredients</label>
+          <label className="block font-medium mb-1">Ingredients (comma-separated)</label>
           <textarea
             className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
             rows="3"
