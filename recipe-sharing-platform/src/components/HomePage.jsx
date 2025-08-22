@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import data from '../data.json'
 
 const HomePage = () => {
-  const [recipes, setRecipes] = useState([]);
-
-  useEffect(() => {
-    // Load data.json when the component mounts
-    fetch("/data.json")
-      .then((res) => res.json())
-      .then((data) => setRecipes(data))
-      .catch((err) => console.error("Error loading recipes:", err));
-  }, []);
+  const [recipes, setRecipes] = useState(data);
 
   return (
     <div className="container mx-auto px-4 py-8">
