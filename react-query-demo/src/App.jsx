@@ -2,7 +2,12 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    keepPreviousData: true,
+    refetchOnWindowFocus
+  }
+});
 
 function App() {
   return (
