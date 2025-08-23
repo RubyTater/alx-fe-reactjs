@@ -17,7 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
 
         {/* Dynamic Route Example */}
-        <Route path="/posts/:id" element={<BlogPost />} />
+        <Route path="/blog/:id" element={<BlogPost />} />
 
         {/* Protected Routes */}
         <Route
