@@ -22,7 +22,9 @@ const PostsComponent = () => {
     queryKey: ["posts"],
     queryFn: fetchPosts,
     staleTime: 5000, // cache freshness window (5 seconds)
-    cacheTime: 1000 * 60 * 5, // keep data in cache for 5 minutes
+    cacheTime: 1000 * 60 * 5, // keep data in cache for 5 minutes,
+    refetchOnWindowFocus,
+    keepPreviousData
   });
 
   if (isLoading) return <p className="text-center text-blue-500">Loading posts...</p>;
